@@ -3,9 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
-
-// If we have custom hbs helpers link them here
-// const helpers = require('./utils/helpers');
+const helpers = require('./utils/helpers');
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -13,8 +11,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// If we have custom hbs helpers link them here
-// const hbs = exhps.create({ helpers})
+const hbs = exphbs.create({ helpers });
 
 const sess = {
     secret: "secret secret I've got a secret",
@@ -28,12 +25,14 @@ const sess = {
 
 app.use(session(sess));
 
-app.engine("handlebars", exphbs({
-    // defaultLayout: "main",
-    // log: function (something) {
-    //     console.log(something);
-    // }
-}));
+app.engine('handlebars', hbs.engine);
+
+// app.engine("handlebars", exphbs({
+//     // defaultLayout: "main",
+//     // log: function (something) {
+//     //     console.log(something);
+//     // }
+// }));
 app.set("view engine", "handlebars");
 
 app.use(express.json());
