@@ -1,4 +1,4 @@
-<!-- Loop over each object in the projects array -->
+<!-- Loop over each object in the posts array -->
 {{#each posts as |post| }}
 <div class="row mb-4 project">
     <div class="col-md-5">
@@ -11,7 +11,6 @@
     </div>
     <div class="col-md-7">
         <p>Posted by {{post.user.username}} on {{format_date post.date_created}}</p>
-
     </div>
 </div>
 {{/each}}
