@@ -28,13 +28,6 @@ const sess = {
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
-
-// app.engine("handlebars", exphbs({
-//     // defaultLayout: "main",
-//     // log: function (something) {
-//     //     console.log(something);
-//     // }
-// }));
 app.set("view engine", "handlebars");
 
 app.use(express.json());
