@@ -24,13 +24,11 @@ const newFormHandler = async (event) => {
 const updateButtonHandler = (event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
-        console.log(id);
         document.location.replace(`/update/${id}`);
     }
 };
 
 const delButtonHandler = async (event) => {
-    console.log(event.target);
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
