@@ -1,5 +1,9 @@
-header, .project:not(:last-child) {
+header, .comment:not(:last-child), .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
+}
+
+.comment {
+  border-top: 1px solid #ccc;
 }
 
 .no-button {
